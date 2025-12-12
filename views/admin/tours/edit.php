@@ -71,5 +71,5 @@ view('layouts/AdminLayout', [
     'breadcrumb' => $breadcrumb,
     'content' => $content,
 ]);
- ?>
+?>
  

@@ -63,7 +63,6 @@ ob_start();
        </div>
     </div>
 </div>
-
 <?php
 $content = ob_get_clean();
 view('layouts/AdminLayout', [
