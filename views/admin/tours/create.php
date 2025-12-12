@@ -70,6 +70,6 @@ view('layouts/AdminLayout', [
     'title' => $pageTitle, ' - Website Quan lý tour',
     'pageTitle' => $pageTitle,
     'breadcrumbs' => $breadcrumbs,
-    'content' => $content,
+    'content' =>  $content,
 ]);
 ?>
