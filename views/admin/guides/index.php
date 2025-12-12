@@ -62,8 +62,8 @@ ob_start();
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <a href="">sửa</a>
-                                    <a href="">Xóa</a>
+                                    <a href="<?= BASE_URL ?>guide/edit?id=<?= htmlspecialchars($guide['id'] ?? '')?>" class="btn btn-primary btn-sm" title="Chỉnh sửa"><i class="bi bi-pencil-square"></i>Chỉnh sửa</a>
+                                    <a href="<?= BASE_URL ?>guide/edit?id=<?= htmlspecialchars($guide['id'] ?? '')?>" class=" btbtn btn-danger btn-sm" onclick="return confirm('Bạn chắc chắn muốn xóa hướng đãn viên này?')" title="Xóa"><i class="bi bi-trash"></i>Xóa</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

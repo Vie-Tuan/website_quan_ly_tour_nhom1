@@ -49,3 +49,12 @@ ob_start();
         </div>
     </div>
 </div>
+<?php
+$content = ob_get_clean();
+view('layouts/AdminLayout', [
+    'title' => $pageTitle . ' - Website Quản Lý Tour',
+    'pageTitle' => $pageTitle,
+    'breadcrumb' => $breadcrumb,
+    'content' => $content,
+]);
+?>

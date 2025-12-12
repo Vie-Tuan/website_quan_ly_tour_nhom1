@@ -141,3 +141,4 @@ public function delete()
         redirect('guide/index');
 }
 }
+}
