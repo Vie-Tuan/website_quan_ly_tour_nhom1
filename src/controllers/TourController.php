@@ -6,7 +6,7 @@ class TourController
     {
         $this->tourModel = new Tour();
     }
-     public function index()
+    public function index()
      {
         if (!isLoggedIn()){
             header('Location:' . BASE_URL . 'welcome');
@@ -14,8 +14,8 @@ class TourController
         }
 
         $tours = $this->tourModel->all();
-         view('admin/tours/index',[
-            'title' => 'Danh sách Tour - Website quản lý tuor',
+            view('admin/tours/index',[
+                'title' => 'Danh sách Tour - Website quản lý tour',
             'tours' => $tours,
          ]);
      }
@@ -23,10 +23,10 @@ class TourController
      public function create()
      {
         if (!isLoggedIn()){
-            
-        }header('Location:' . BASE_URL . 'welcome');
+            header('Location:' . BASE_URL . 'welcome');
             exit;
-        $curentUser = getCurrentUser();
+        }
+        $currentUser = getCurrentUser();
         if (!$currentUser->isAdmin()) {
             http_response_code(403);
             view('not_found',[
@@ -34,11 +34,11 @@ class TourController
             ]);
             exit;
         }
-        view('admin/tuors/create',[
+        view('admin/tours/create',[
                 'title' => 'Tạo tour mới - Website quản lý tour',
         ]);
      }
-     public function store()
+    public function store()
      {
         if (!isLoggedIn()) {
             header('Location:' . BASE_URL . 'welcome');
@@ -49,7 +49,7 @@ class TourController
             http_response_code(403);
             exit;
         }
-        if ($_SESSION['REQUEST_METHOD'] !== 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             header('Location:' . BASE_URL . 'tour/create');
             exit;
         }
@@ -71,16 +71,16 @@ class TourController
         $data['status'] = (int)$data['status'];
 
         if ($this->tourModel->create($data)) {
-            $_SESSION['success'] = 'Tạo tuor thành công';
+            $_SESSION['success'] = 'Tạo tour thành công';
             header('Location:' . BASE_URL . 'tour/index');
         } else {
-            $_SESSION['error'] = 'Tạo tuor thất bại.';
+            $_SESSION['error'] = 'Tạo tour thất bại.';
             header('Location:' . BASE_URL . 'tour/create');
         }
         exit;
      } 
 
-     public function edit(){
+    public function edit(){
 
         if (!isLoggedIn()) {
             header('Location:' . BASE_URL . 'welcome');
@@ -108,7 +108,7 @@ class TourController
             ]);
             exit;
      }
-     view('admin/tuors/create',[
+         view('admin/tours/edit',[
         'title' => 'Chỉnh sửa tour - Website quản lý tour',
         'tour' => $tour,
         ]);
@@ -125,13 +125,13 @@ public function update()
         http_response_code(403);
         exit;
 }
-        if ($_SESSION['REQUEST_METHOD'] !== 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             header('Location:' . BASE_URL . 'tour/index');
             exit;
         }
-        $id = $_GET['id'] ?? null;
+        $id = $_GET['id'] ?? $_POST['id'] ?? null;
         if (!$id) {
-            $_SESSION['error'] = 'ID tour không hợp lệ.'
+            $_SESSION['error'] = 'ID tour không hợp lệ.';
             header('Location:' . BASE_URL . 'tour/index');
             exit;
      }
@@ -173,14 +173,14 @@ if (!isLoggedIn()) {
 }
        $id = $_GET['id'] ?? null;
         if (!$id) {
-            $_SESSION['error'] = 'ID tour không hợp lệ.'
+            $_SESSION['error'] = 'ID tour không hợp lệ.';
             header('Location:' . BASE_URL . 'tour/index');
             exit;
 }
 if ($this->tourModel->delete($id)) {
-    $_SESSION['success'] = 'Xóa tuor thành công';
+    $_SESSION['success'] = 'Xóa tour thành công';
 } else {
-    $_SESSION['error'] = 'Xóa tuor thất bại';
+    $_SESSION['error'] = 'Xóa tour thất bại';
 
 }
         header('Location:' . BASE_URL . 'tour/index');

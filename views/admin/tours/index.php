@@ -27,7 +27,7 @@ ob_start();
         </div>
         <?php unset($_SESSION['error']); ?>
         <?php endif; ?>
-        <?php if (empty($guides)): ?>
+        <?php if (empty($tours)): ?>
             <div class="alert alert-info" role="alert">
                 <i class="bi bi-info-circle"></i> Chưa có tour nào <a href="<?= BASE_URL ?>tour/create">Thêm tour mới</a>
             </div>
@@ -47,7 +47,7 @@ ob_start();
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($tuors as $tuor): ?>
+                        <?php foreach ($tours as $tour): ?>
                             <tr>
                                 <td><strong>#<?= htmlspecialchars($tour['id'] ?? '') ?></strong></td>
                                 <td>
@@ -63,14 +63,14 @@ ob_start();
 
                                 <td>
                                     <?php if (($tour['status'] ?? 0) == 1): ?>
-                                        <span class="badge bg-success"><i class="bi bi-check-circle"></i>Hoạt động</span>
+                                        <span class="badge bg-success"><i class="bi bi-check-circle"></i> Hoạt động</span>
                                     <?php else: ?>
-                                        <span class="badge bg-danger"></span><i class="bi bi-x-circle"></i>Không hoạt động</span>
+                                        <span class="badge bg-danger"><i class="bi bi-x-circle"></i> Không hoạt động</span>
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <a href="<?= BASE_URL ?>tour/edit?id=<?= htmlspecialchars($tour['id'] ?? '')?>" class="btn btn-primary btn-sm" title="Chỉnh sửa"><i class="bi bi-pencil-square"></i>Chỉnh sửa</a>
-                                    <a href="<?= BASE_URL ?>tour/edit?id=<?= htmlspecialchars($tour['id'] ?? '')?>" class=" btbtn btn-danger btn-sm" onclick="return confirm('Bạn chắc chắn muốn xóa tour này?')" title="Xóa"><i class="bi bi-trash"></i>Xóa</a>
+                                    <a href="<?= BASE_URL ?>tour/edit?id=<?= htmlspecialchars($tour['id'] ?? '')?>" class="btn btn-primary btn-sm" title="Chỉnh sửa"><i class="bi bi-pencil-square"></i> Chỉnh sửa</a>
+                                    <a href="<?= BASE_URL ?>tour/delete?id=<?= htmlspecialchars($tour['id'] ?? '')?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn chắc chắn muốn xóa tour này?')" title="Xóa"><i class="bi bi-trash"></i> Xóa</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
