@@ -186,4 +186,5 @@ if ($this->tourModel->delete($id)) {
         header('Location:' . BASE_URL . 'tour/index');
         exit;
 }
+
 }
