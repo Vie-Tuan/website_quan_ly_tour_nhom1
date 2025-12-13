@@ -184,5 +184,7 @@ public function updeteStatus()
     redirect('booking/index' . ($tour_id ? '?tour_id=' . $tour_id : ''  ));
 
 }
+   
+
 
 }
