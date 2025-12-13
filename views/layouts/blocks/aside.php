@@ -49,12 +49,14 @@
                 <p>Danh sách Tour</p>
               </a>
             </li>
+            <?php if(isAdmin()):?>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon bi bi-circle"></i>
                 <p>Thêm Tour mới</p>
               </a>
             </li>
+            <?php endif; ?>
           </ul>
         </li>
         <?php if(isAdmin()):?>
