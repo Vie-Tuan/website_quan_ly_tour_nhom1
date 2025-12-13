@@ -85,7 +85,7 @@ ob_start();
 <?php
 $content = ob_get_clean();
 view('layouts/AdminLayout', [
-    'title' => $pageTitle, ' - Webes Quan lý tour',
+    'title' => $pageTitle . ' - Website Quản Lý Tour',
     'pageTitle' => $pageTitle,
     'breadcrumbs' => $breadcrumbs,
     'content' => $content,
