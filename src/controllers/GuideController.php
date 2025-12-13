@@ -117,7 +117,7 @@ public function updata()
             $_SESSION['error']='Lỗi:' . $e->getMessage();
             redirect('guide/edit?id=' . $id);
 }
-
+}
 public function delete()
 {
         requireLoin();
@@ -140,5 +140,5 @@ public function delete()
         }
         redirect('guide/index');
 }
-}
+
 }
